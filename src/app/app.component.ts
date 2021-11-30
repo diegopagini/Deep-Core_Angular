@@ -2,9 +2,10 @@ import { Component, Inject, Injector, OnInit } from "@angular/core";
 import { Course } from "./model/course";
 import { AppConfig, CONFIG_TOKEN } from "./config";
 import { COURSES } from "../db-data";
-import { CoursesService } from "./courses/courses.service";
+
 import { createCustomElement } from "@angular/elements";
 import { CourseTitleComponent } from "./course-title/course-title.component";
+import { CoursesService } from "./courses/courses.service";
 
 @Component({
   selector: "app-root",

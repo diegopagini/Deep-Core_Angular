@@ -27,5 +27,24 @@
     >
       <course-image [src]="course.iconUrl"></course-image>
     </course-card>
+
+    <!-- <ng-template #course let-courseName="description">
+      <p class="warn">{{ courseName }} has no image yet.</p>
+      <img src="../assets/empty-image.png" />
+    </ng-template>
+
+    <div
+      *ngTemplateOutlet="
+        course;
+        context: { description: courses[0].description }
+      "
+    ></div>
+
+    <ng-container
+      *ngTemplateOutlet="
+        course;
+        context: { description: courses[1].description }
+      "
+    ></ng-container> -->
   </div>
 </div>
