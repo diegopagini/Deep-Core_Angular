@@ -1,50 +1,50 @@
-import {Directive, EventEmitter, Host, HostBinding, HostListener, Input, Output} from '@angular/core';
-import {CoursesService} from '../courses.service';
-
+import {
+  Directive,
+  EventEmitter,
+  Host,
+  HostBinding,
+  HostListener,
+  Input,
+  Output,
+} from "@angular/core";
+import { CoursesService } from "../courses.service";
 
 @Directive({
-    selector: '[highlighted]',
-    exportAs: 'hl'
+  selector: "[highlighted]",
+  exportAs: "hl",
 })
 export class HighlightedDirective {
+  @Input("highlighted")
+  isHighlighted = false;
 
-    @Input('highlighted')
-    isHighlighted = false;
+  @Output()
+  toggleHighlight = new EventEmitter();
 
-    @Output()
-    toggleHighlight = new EventEmitter();
+  constructor(private coursesService: CoursesService) {
+    console.log("coursesService highlighted " + coursesService.id);
+  }
 
-    constructor(private coursesService: CoursesService) {
+  @HostBinding("class.highlighted")
+  get cssClasses() {
+    return this.isHighlighted;
+  }
 
-        console.log('coursesService highlighted ' + coursesService.id);
+  @HostListener("mouseover", ["$event"])
+  mouseOver($event) {
+    console.log($event);
 
-    }
+    this.isHighlighted = true;
+    this.toggleHighlight.emit(this.isHighlighted);
+  }
 
-    @HostBinding('class.highlighted')
-    get cssClasses() {
-        return this.isHighlighted;
-    }
+  @HostListener("mouseleave")
+  mouseLeave() {
+    this.isHighlighted = false;
+    this.toggleHighlight.emit(this.isHighlighted);
+  }
 
-    @HostListener('mouseover', ['$event'])
-    mouseOver($event) {
-
-        console.log($event);
-
-        this.isHighlighted = true;
-        this.toggleHighlight.emit(this.isHighlighted);
-    }
-
-    @HostListener('mouseleave')
-    mouseLeave() {
-        this.isHighlighted = false;
-        this.toggleHighlight.emit(this.isHighlighted);
-    }
-
-    toggle() {
-        this.isHighlighted = !this.isHighlighted;
-        this.toggleHighlight.emit(this.isHighlighted);
-    }
-
-
-
+  toggle() {
+    this.isHighlighted = !this.isHighlighted;
+    this.toggleHighlight.emit(this.isHighlighted);
+  }
 }

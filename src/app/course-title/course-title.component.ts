@@ -1,18 +1,20 @@
-import {Component, CUSTOM_ELEMENTS_SCHEMA, Input, OnInit} from '@angular/core';
+import {
+  Component,
+  CUSTOM_ELEMENTS_SCHEMA,
+  Input,
+  OnInit,
+} from "@angular/core";
 
 @Component({
-  selector: 'course-title',
-  templateUrl: './course-title.component.html',
-  styleUrls: ['./course-title.component.css']
+  selector: "course-title",
+  templateUrl: "./course-title.component.html",
+  styleUrls: ["./course-title.component.css"],
 })
 export class CourseTitleComponent implements OnInit {
+  @Input()
+  title: string;
 
-   @Input()
-  title:string;
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }
