@@ -16,9 +16,11 @@
         let course of courses;
         let i = index;
         first as isFirst;
-        last as isLast
+        last as isLast;
+        even as isEven;
+        odd as isOdd
       "
-      [ngClass]="{ first: isFirst, last: isLast }"
+      [ngClass]="{ first: isFirst, last: isLast, even: isEven, odd: isOdd }"
       (courseChanged)="save($event)"
       type="beginner"
       [course]="course"

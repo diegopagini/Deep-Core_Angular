@@ -1,18 +1,8 @@
 import {
-  AfterContentChecked,
-  AfterContentInit,
-  AfterViewChecked,
-  AfterViewInit,
   Attribute,
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
   Component,
-  DoCheck,
   EventEmitter,
   Input,
-  OnChanges,
-  OnDestroy,
-  OnInit,
   Output,
 } from "@angular/core";
 import { Course } from "../../model/course";
@@ -23,7 +13,7 @@ import { CoursesService } from "../courses.service";
   templateUrl: "./course-card.component.html",
   styleUrls: ["./course-card.component.css"],
 })
-export class CourseCardComponent implements OnInit {
+export class CourseCardComponent {
   @Input()
   course: Course;
 
@@ -37,8 +27,6 @@ export class CourseCardComponent implements OnInit {
     private coursesService: CoursesService,
     @Attribute("type") private type: string
   ) {}
-
-  ngOnInit() {}
 
   onTitleChanged(newTitle: string) {
     this.course.description = newTitle;

@@ -12,6 +12,14 @@
   margin: 50px auto;
 }
 
+.even {
+  border-top: 1px solid green;
+}
+
+.odd {
+  border-top: 1px solid yellow;
+}
+
 .first {
   border-top: 1px solid red;
 }

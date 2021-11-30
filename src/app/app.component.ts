@@ -1,14 +1,5 @@
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  DoCheck,
-  Inject,
-  Injector,
-  OnInit,
-} from "@angular/core";
+import { Component, Inject, Injector, OnInit } from "@angular/core";
 import { Course } from "./model/course";
-import { Observable } from "rxjs";
 import { AppConfig, CONFIG_TOKEN } from "./config";
 import { COURSES } from "../db-data";
 import { CoursesService } from "./courses/courses.service";
@@ -22,7 +13,6 @@ import { CourseTitleComponent } from "./course-title/course-title.component";
 })
 export class AppComponent implements OnInit {
   courses: Course[] = COURSES;
-
   coursesTotal = this.courses.length;
 
   constructor(
