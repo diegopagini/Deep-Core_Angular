@@ -22,20 +22,24 @@ export class HighlightedDirective {
     console.log("Directive created..");
   }
 
-  @HostBinding("class.highlighted")
+  @HostBinding("class.highlighted") // binding clases
   get cssClasses() {
     return this.isHighlighted;
   }
 
-  @HostListener("mouseover", ["$event"])
+  @HostBinding("attr.disabled") // binding attributes
+  get disabled() {
+    return true;
+  }
+
+  @HostListener("mouseover", ["$event"]) // Listen mouseover events
   mouseOver($event) {
     console.log($event);
-
     this.isHighlighted = true;
     this.toggleHighlight.emit(this.isHighlighted);
   }
 
-  @HostListener("mouseleave")
+  @HostListener("mouseleave") // listen mouseleave events
   mouseLeave() {
     this.isHighlighted = false;
     this.toggleHighlight.emit(this.isHighlighted);
