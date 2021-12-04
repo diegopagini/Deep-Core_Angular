@@ -1,3 +1,4 @@
+/* To apply styles to the component container */
 :host {
   display: block;
 }
@@ -38,6 +39,7 @@
   font-weight: bold;
 }
 
+/* ::ng-deep is used to style ng-content elements */
 .course-card ::ng-deep .course-description {
   max-width: 360px;
   margin: 0 auto;
